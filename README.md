@@ -18,6 +18,14 @@ Include jQuery and the plugin on a page. Include your images and initialise the 
 
 For more information on how to setup and customise, [check the examples](http://www.elevateweb.co.uk/image-zoom/examples).
 
+## Bug
+```
+self.zoomContainer = $('<div class="zoomContainer" style="-webkit-transform: translateZ(0);position:absolute;left:' + self.nzOffset.left + 'px;top:' + self.nzOffset.top + 'px;height:' + self.nzHeight + 'px;width:' + self.nzWidth + 'px;"></div>');
+			$('body').append(self.zoomContainer);
+```
+There is a bug in above code if used with carousel, it will keep appending a new div.zoomContainer.
+A quick fix is to remove the div before calling the zoom function: ```$('.zoomContainer').remove();```
+
 ## License
 Copyright (c) 2012 Andrew Eades
 Dual licensed under the GPL and MIT licenses.
